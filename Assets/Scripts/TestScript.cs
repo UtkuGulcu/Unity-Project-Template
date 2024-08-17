@@ -15,5 +15,10 @@ public class TestScript : MonoBehaviour
         {
             ServiceManager.GetService<MenuService>().Show<GameplayMenu>();
         }
+        
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            ServiceManager.GetService<MenuService>().Get<HomeMenu>().Disappear();
+        }
     }
 }

@@ -25,6 +25,11 @@ public class MenuService : BaseService
 
     public void Show<T>() where T : BaseMenu
     {
+        if (activeMenu && activeMenu.GetType() == typeof(T))
+        {
+            return;
+        }
+
         if (activeMenu && activeMenu.GetType() != typeof(T))
         {
             activeMenu.Disappear();
