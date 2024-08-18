@@ -5,7 +5,12 @@ using UnityEngine;
 [DefaultExecutionOrder(-99)]
 public abstract class BaseService : MonoBehaviour
 {
-    protected virtual void Awake()
+    private void Awake()
+    {
+        Initialize();
+    }
+
+    protected virtual void Initialize()
     {
         ServiceManager.AddService(this);
     }

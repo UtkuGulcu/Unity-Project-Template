@@ -8,11 +8,6 @@ public class MenuService : BaseService
     private List<BaseMenu> menuList = new List<BaseMenu>();
     private BaseMenu activeMenu;
 
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
     public void Add(BaseMenu baseMenu)
     {
         menuList.Add(baseMenu);
