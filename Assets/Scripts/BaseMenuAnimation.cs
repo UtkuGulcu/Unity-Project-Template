@@ -30,27 +30,11 @@ public class BaseMenuAnimation : MonoBehaviour
 
     protected virtual void OnMenuPreAppeared()
     {
-        //Play Animation / DoTween
 
-        StartCoroutine(WaitForDelay());
-
-        IEnumerator WaitForDelay()
-        {
-            yield return new WaitForSeconds(1f);
-            OnAppearAnimationFinished?.Invoke();
-        }
     }
 
     protected virtual void OnMenuPreDisappeared()
     {
-        //Play Animation / DoTween
 
-        StartCoroutine(WaitForDelay());
-
-        IEnumerator WaitForDelay()
-        {
-            yield return new WaitForSeconds(1f);
-            OnDisappearAnimationFinished?.Invoke();
-        }
     }
 }

@@ -49,6 +49,13 @@ public abstract class BaseMenu : MonoBehaviour
         rectTransform.anchoredPosition = Vector2.zero;
     }
 
+    public void Disappear()
+    {
+        OnPreDisappear?.Invoke();
+        PreDisappeared();
+        rectTransform.anchoredPosition = startPosition;
+    }
+
     protected virtual void PreAppeared()
     {
 
@@ -67,12 +74,5 @@ public abstract class BaseMenu : MonoBehaviour
     protected virtual void PostDisappeared()
     {
 
-    }
-
-    public void Disappear()
-    {
-        OnPreDisappear?.Invoke();
-        PreDisappeared();
-        rectTransform.anchoredPosition = startPosition;
     }
 }
