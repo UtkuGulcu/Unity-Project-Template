@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HomeMenuAnimation : BaseMenuAnimation
+public class HomeMenuAnimation : BasePanelAnimation
 {
-    [SerializeField] private Image image;
+    [SerializeField] private Image backgroundImage;
 
     protected override void OnMenuPreAppeared()
     {
         base.OnMenuPreAppeared();
 
-        image.DOFade(1f, 0.5f).onComplete += () =>
+        backgroundImage.color = new Color(backgroundImage.color.r, backgroundImage.color.g, backgroundImage.color.b, 0f);
+
+        backgroundImage.DOFade(1f, 0.5f).onComplete += () =>
         {
             OnAppearAnimationFinished?.Invoke();
         };
@@ -21,10 +23,6 @@ public class HomeMenuAnimation : BaseMenuAnimation
     protected override void OnMenuPreDisappeared()
     {
         base.OnMenuPreDisappeared();
-
-        image.DOFade(0f, 0.5f).onComplete += () =>
-        {
-            OnDisappearAnimationFinished?.Invoke();
-        };
+        OnDisappearAnimationFinished?.Invoke();
     }
 }

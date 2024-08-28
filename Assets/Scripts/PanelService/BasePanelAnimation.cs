@@ -4,28 +4,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseMenuAnimation : MonoBehaviour
+public abstract class BasePanelAnimation : MonoBehaviour
 {
     public Action OnAppearAnimationFinished;
     public Action OnDisappearAnimationFinished;
 
-    private BaseMenu baseMenu;
+    private BasePanel basePanel;
 
     protected virtual void Awake()
     {
-        baseMenu = GetComponent<BaseMenu>();
-    }
-
-    private void Start()
-    {
-        baseMenu.OnPreAppear += OnMenuPreAppeared;
-        baseMenu.OnPreDisappear += OnMenuPreDisappeared;
+        basePanel = GetComponent<BasePanel>();
+        basePanel.OnPreAppear += OnMenuPreAppeared;
+        basePanel.OnPreDisappear += OnMenuPreDisappeared;
     }
 
     private void OnDestroy()
     {
-        baseMenu.OnPreAppear -= OnMenuPreAppeared;
-        baseMenu.OnPreDisappear -= OnMenuPreDisappeared;
+        basePanel.OnPreAppear -= OnMenuPreAppeared;
+        basePanel.OnPreDisappear -= OnMenuPreDisappeared;
     }
 
     protected virtual void OnMenuPreAppeared()

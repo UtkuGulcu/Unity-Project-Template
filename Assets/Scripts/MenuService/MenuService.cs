@@ -3,34 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class MenuService : BaseService
+public class MenuService : PanelService
 {
-    private List<BaseMenu> menuList = new List<BaseMenu>();
-    private BaseMenu activeMenu;
-
-    public void Add(BaseMenu baseMenu)
+    public override void Show<T>()
     {
-        menuList.Add(baseMenu);
-    }
+        base.Show<T>();
 
-    public T Get<T>() where T : BaseMenu
-    {
-        return menuList.OfType<T>().FirstOrDefault();
-    }
-
-    public void Show<T>() where T : BaseMenu
-    {
-        if (activeMenu && activeMenu.GetType() == typeof(T))
+        if (activePanel && activePanel.GetType() == typeof(T))
         {
             return;
         }
 
-        if (activeMenu && activeMenu.GetType() != typeof(T))
+        if (activePanel && activePanel.GetType() != typeof(T))
         {
-            activeMenu.Disappear();
+            activePanel.Disappear();
         }
 
-        activeMenu = Get<T>();
-        activeMenu.Appear();
+        activePanel = Get<T>();
+        activePanel.Appear();
     }
 }

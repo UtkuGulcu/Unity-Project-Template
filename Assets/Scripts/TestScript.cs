@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,10 @@ public class TestScript : MonoBehaviour
         {
             ServiceManager.GetService<MenuService>().Show<GameplayMenu>();
         }
-        
-        if (Input.GetKeyDown(KeyCode.D))
+
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            ServiceManager.GetService<MenuService>().Get<HomeMenu>().Disappear();
+            ServiceManager.GetService<PopupService>().Show<ExamplePopup>();
         }
     }
 }
