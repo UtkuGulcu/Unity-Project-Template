@@ -17,11 +17,6 @@ public class PopupService : PanelService
     {
         base.Show<T>();
 
-        if (activePanel && activePanel.GetType() == typeof(T))
-        {
-            return;
-        }
-
         activePanel = Get<T>();
         var spawnedPopup = Instantiate(activePanel, transform).GetComponent<BasePopup>();
         spawnedPopup.Appear();

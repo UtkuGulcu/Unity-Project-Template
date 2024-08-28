@@ -26,4 +26,19 @@ public class ExamplePopupAnimation : BasePanelAnimation
             OnAppearAnimationFinished?.Invoke();
         };
     }
+
+    protected override void OnMenuPreDisappeared()
+    {
+        base.OnMenuPreDisappeared();
+
+        Sequence disappearAnimationSequence = DOTween.Sequence();
+
+        disappearAnimationSequence.Append(backgroundImage.DOFade(0, 0.5f));
+        disappearAnimationSequence.Join(contentObject.DOScale(0f, 0.5f));
+
+        disappearAnimationSequence.onComplete += () =>
+        {
+            OnDisappearAnimationFinished?.Invoke();
+        };
+    }
 }
