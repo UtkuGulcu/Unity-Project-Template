@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fb5c71ced49974d8b36b8340dbc550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundReferences: {fileID: 0}
+  soundReferences: {fileID: 11400000, guid: 227e9ba75a4963f46b3c2aae2a9040e8, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

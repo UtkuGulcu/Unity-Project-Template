@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
+    public static Action OnAnyExampleSoundEvent;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
@@ -20,6 +22,11 @@ public class TestScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             ServiceManager.GetService<PopupService>().Show<ExamplePopup>();
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            OnAnyExampleSoundEvent.Invoke();
         }
     }
 }

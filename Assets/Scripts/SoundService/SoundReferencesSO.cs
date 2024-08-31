@@ -6,4 +6,5 @@ using UnityEngine;
 public class SoundReferencesSO : ScriptableObject
 {
     //Place audio clip references here
+    public AudioClip exampleAudio;
 }
